@@ -1,31 +1,46 @@
-alfabeto = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuWwXxYyZz"
+#alfabeto = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+
 tamanhoAlfabeto = range(len(alfabeto))
 
-letterIndex = dict(zip(alfabeto, tamanhoAlfabeto))
-indexLetter = dict(zip(tamanhoAlfabeto, alfabeto))
+#dict = dicionário -> dict(zip()) = percorre todo o dicionário e atribui ao alfabeto 
+# o número da string (print(letraIndex)) e (print(IndexLetra)) para melhor entendimento.
+
+#Cria um índice amarrando um caracter da variável "alfabeto" na sua posiç ão da string, pela variável "tamanhoAlfabeto"
+letraIndex = dict(zip(alfabeto, tamanhoAlfabeto))
+
+#Cria um índice amarrando um número da variável "tamanhoAlfabeto" com o caracter na variável "alfabeto"
+indexLetra = dict(zip(tamanhoAlfabeto, alfabeto))
 
 resultado = ""
 
-def cesarEncrypt(plaintext, shift=3):
-    cipher = ''
+def cesarCripto(plaintext, troca):
+    cifra = ''
 
-    for letter in plaintext:
-        index = ((letterIndex[letter] + shift) % len(alfabeto))
-        cipherLetter = indexLetter[index]
-        cipher += cipherLetter  
-    resultado = cipher    
+    for letra in plaintext:
+        index = ((letraIndex[letra] + troca) % len(alfabeto))
+        letraCifra = indexLetra[index]
+        cifra += letraCifra  
+    resultado = cifra    
     return resultado 
 
-def cesarDecrypt(ciphertext, shift=-3):
-    global encryptStatus
-    encryptStatus = 3
+def cesarDescripto(ciphertext, troca):
     uncipher = ''
-    for letter in ciphertext:
-        index = ((letterIndex[letter] + shift) % len(alfabeto))
-        cipherLetter = indexLetter[index]
+    for letra in ciphertext:
+        index = ((letraIndex[letra] + troca) % len(alfabeto))
+        cipherLetter = indexLetra[index]
         uncipher += cipherLetter  
     resultado = uncipher
     return resultado 
 
-print("Criptografia: " + cesarEncrypt("Python", 8))
-print("Descriptogragia: " + cesarDecrypt(cesarEncrypt("Python", 8), -8))
+resposta = input("Você deseja Criptografar ou Descriptografar uma mensagem? c/d ")
+resposta.lower()
+
+if "d" in resposta:
+  descriptografar = input("Insira o texto que quer Descriptografar: ")
+  rotacao = int(input("Insira o número de rotações: "))
+  print("Descriptogragia: " + cesarDescripto(descriptografar, -rotacao))
+else:  
+  criptografar = input("Insira o texto que quer Criptografar: ")
+  rotacao = int(input("Insira o número de rotações: "))
+  print("Criptografia: " + cesarCripto(criptografar, rotacao))
