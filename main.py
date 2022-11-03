@@ -2,10 +2,7 @@ alfabeto = "abcçdefghijklmnopqrstuvwxyz"
 tamanhoAlfabeto = range(len(alfabeto))
 continuarCripto = "s"
 
-#Cria um dicionário juntando a chave "alfabeto" e o valor "tamanhoAlfabeto"
 letraIndex = dict(zip(alfabeto, tamanhoAlfabeto))
-
-#Cria um dicionário juntando a chave "tamanhoAlfabeto" e o valor "alfabeto"
 posicaoIndex = dict(zip(tamanhoAlfabeto, alfabeto))
 
 def cesarCripto(plaintext, troca):
