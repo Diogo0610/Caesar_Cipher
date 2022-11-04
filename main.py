@@ -1,3 +1,31 @@
+""""#https://realpython.com/python-gui-tkinter/
+import tkinter as tk
+window = tk.Tk()
+greeting = tk.Label(
+  text="Programa de Criptografia",
+  width=40,
+  height=3
+)
+greeting.pack()
+mensagem = tk.Label(text="Insira a mensagem")
+entry = tk.Entry()
+mensagem.pack()
+entry.pack()
+Cript_btn = tk.Button(
+    text="Criptografar",
+    width=10,
+    height=2,
+    bg="blue",
+    fg="yellow",)
+Dcript_btn = tk.Button(
+    text="Descriptografar",
+    width=10,
+    height=2,
+    bg="blue",
+    fg="yellow",)
+Cript_btn.pack(), Dcript_btn.pack()
+window.mainloop()"""
+
 alfabeto = "abcçdefghijklmnopqrstuvwxyz"
 tamanhoAlfabeto = range(len(alfabeto))
 continuarCripto = "s"
