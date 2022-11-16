@@ -25,13 +25,18 @@ def coletaDados():
       mensagem = input("Insira a mensagem: ")
       if len(mensagem) <= 128:
         mensagemFormat = mensagem.lower()
-        rotacao = int(input("Insira a chave: "))
-        if "d" in respostaFormat:
-          print("Descriptografia: " + cesarCripto(mensagemFormat, -rotacao))
-        else:  
-          print("Criptografia: " + cesarCripto(mensagemFormat, rotacao))
+        rotacao = input("Insira a chave numérica: ")
+        numero = rotacao.isnumeric()
+        if numero:
+          rotacao = int(rotacao)
+          if "d" in respostaFormat:
+            print("Descriptografia: " + cesarCripto(mensagemFormat, -rotacao))
+          else:  
+            print("Criptografia: " + cesarCripto(mensagemFormat, rotacao))
+        else:
+          print("A chave precisa ser um número real!")
       else:
-        print("A mensagem ultrapassa 128 caractéres, tente novamente!")
+          print("A mensagem ultrapassa 128 caractéres, tente novamente!")
 
 while continuarCripto == "s":
   coletaDados()
