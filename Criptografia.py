@@ -36,7 +36,11 @@ def coletaDados():
           else:  
             print("Criptografia: " + cesarCripto(mensagemFormat, rotacao))
         else:
+<<<<<<< HEAD
           print("A chave precisa ser um número natural!")
+=======
+          print("A chave precisa ser um número real!")
+>>>>>>> 7f85d693d5e60a6d5e444db0d1f5df2b9a24b286
       else:
           print("A mensagem ultrapassa 128 caractéres, tente novamente!")
 
