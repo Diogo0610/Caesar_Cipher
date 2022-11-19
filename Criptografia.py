@@ -1,4 +1,6 @@
-alfabeto = "abcçdefghijklmnopqrstuvwxyz"
+from tkinter import *
+
+alfabeto = "abcdefghijklmnopqrstuvwxyz"
 tamanhoAlfabeto = range(len(alfabeto))
 continuarCripto = "s"
 
@@ -25,15 +27,47 @@ def coletaDados():
       mensagem = input("Insira a mensagem: ")
       if len(mensagem) <= 128:
         mensagemFormat = mensagem.lower()
-        rotacao = int(input("Insira a chave: "))
-        if "d" in respostaFormat:
-          print("Descriptografia: " + cesarCripto(mensagemFormat, -rotacao))
-        else:  
-          print("Criptografia: " + cesarCripto(mensagemFormat, rotacao))
+        rotacao = input("Insira a chave numérica: ")
+        numero = rotacao.isnumeric()
+        if numero:
+          rotacao = int(rotacao)
+          if "d" in respostaFormat:
+            print("Descriptografia: " + cesarCripto(mensagemFormat, -rotacao))
+          else:  
+            print("Criptografia: " + cesarCripto(mensagemFormat, rotacao))
+        else:
+          print("A chave precisa ser um número natural!")
       else:
-        print("A mensagem ultrapassa 128 caractéres, tente novamente!")
+          print("A mensagem ultrapassa 128 caractéres, tente novamente!")
 
-while continuarCripto == "s":
+'''while continuarCripto == "s":
   coletaDados()
   continuarCripto = input("Digite a letra 's' para continuar ou qualquer outra tecla para encerrar a execução: ")
-print("Programa finalizado!")
+print("Programa finalizado!")'''
+
+window = Tk()
+window.title("Caesar's Cipher")
+
+textPhrase = Label(window, text = "Enter the text: ")
+textPhrase.grid(column=0, row=0, padx=10, pady=10)
+plaintext = Entry(window, width=50)
+plaintext.grid(column=0, row=1, padx=10, pady=3)
+
+textShift = Label(window, text="Enter the number of shifts: ")
+textShift.grid(column=0, row=2, padx=10, pady=10)
+shift = Entry(window, width=10)
+shift.grid(column=0, row=3, padx=10, pady=3)
+
+buttonFrame = Frame(window)
+buttonFrame.grid(column=0, row=4, padx=10, pady=10)
+
+buttonCipher = Button(buttonFrame, text="Cipher text", width=10)
+buttonCipher.pack(side="left")
+
+buttonDecipher = Button(buttonFrame, text="Decipher text", width=10)
+buttonDecipher.pack(side="right")
+
+Result = Label(window, text="Result here!")
+Result.grid(column=0, row=5, padx=10, pady=10)
+
+window.mainloop()
