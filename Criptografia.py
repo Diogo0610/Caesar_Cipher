@@ -61,7 +61,7 @@ htuText5.grid(column=0, row=5, padx=10)
 
 textPhrase = Label(window, text="Enter the text:")
 textPhrase.grid(column=0, row=6, padx=10, pady=10)
-originalText = Entry(window, width=50)
+originalText = Entry(window, width=128)
 originalText.grid(column=0, row=7, padx=10, pady=5)
 
 textShift = Label(window, text="Enter the number of shifts:")
