@@ -14,6 +14,11 @@ Deveriámos desenvolver um programa que utilize algum meio de criptografia para 
 # Tecnologias utilizadas
 - Python
 
+# Clonar repositório
+```bash
+git clone https://github.com/Diogo0610/Caesar_Cipher.git
+```
+
 # Autor
 
 Diogo Bonilha Brandon
